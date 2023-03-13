@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Ref from "./Hooks/use_ref/Ref";
+/*import stateFunc from "./Hooks/use_state"*/
+/*import Effect from "./Hooks/use_effect/Effect";*/
+import { useState,createContext } from "react";
+import DisplayName from "./Hooks/use_context/DisplayName";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const AppContext = createContext(null);
+
+/*const [name,setName]=useState("")
+return(<div className="App"
+       <div><h1>UseContext React Hook</h1></div>
+       <AppContext.Provider value = {{name,setName}}>
+        <GetName/>
+        <br/><br/>
+        <DisplayName/>
+       </AppContext.Provider>
+</div>)*/
+
+function App () {
+    return(
+        <div className="App">
+            <Ref/>
+        </div>
+    );
 }
+
 
 export default App;

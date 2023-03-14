@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-function StateFunc(){
+
+function App(){
 
     const [count,setCount] = useState(0);
 
@@ -19,4 +20,4 @@ function StateFunc(){
         </div>)
 }
 
-export default StateFunc;
+export default App;

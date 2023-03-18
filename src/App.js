@@ -1,32 +1,19 @@
-import React from "react";
-import './App.css';
-import App from "./Hooks/use_memo/Memo";
+import { Route, Routes } from "react-router-dom";
+import AddUser from "./CRUD/users/AddUser";
+import EditUser from "./CRUD/users/EditUser";
+import UserList from "./CRUD/users/UserList";
 
-/*import App from './Hooks/use_reducer/Reducer';*/
-/*import Ref from "./Hooks/use_ref/Ref";*/
-/*import stateFunc from "./Hooks/use_state"*/
-/*import Effect from "./Hooks/use_effect/Effect";*/
-/*import { useState,createContext } from "react";
-/*import DisplayName from "./Hooks/use_context/DisplayName";*/
-
-/*export const AppContext = createContext(null);*/
-
-/*const [name,setName]=useState("")
-return(<div className="App"
-       <div><h1>UseContext React Hook</h1></div>
-       <AppContext.Provider value = {{name,setName}}>
-        <GetName/>
-        <br/><br/>
-        <DisplayName/>
-       </AppContext.Provider>
-</div>)*/
-
-function App1 () {
-    return(
-        <div className="App">
-            <App/>
-        </div>
-    );
+function App() {
+  return (
+    <div className="container mx-auto px-2 max-w-5xl pt-10 md:pt-32">
+      <h1 className="text-center font-bold text-2xl text-gray-700">CRUD with redux toolkit</h1>
+      <Routes>
+        <Route path="/" element={<UserList />} />
+        <Route path="/add-user" element={<AddUser />} />
+        <Route path="/edit-user/:id" element={<EditUser />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App1;
+export default App;

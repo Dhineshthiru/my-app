@@ -40,7 +40,7 @@ const EditUser = () => {
         label="Email"
         value={values.email}
         onChange={(e) => setValues({ ...values, email: e.target.value })}
-        inputProps={{ type: 'email', placeholder: 'jhondoe@mail.com' }}
+        inputProps={{ type: 'email', placeholder: 'Enter your mail-id' }}
       />
       <Button onClick={handleEditUser}>Edit</Button>
     </div>

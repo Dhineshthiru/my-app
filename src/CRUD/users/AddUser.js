@@ -30,14 +30,14 @@ const AddUser = () => {
         label="Name"
         value={values.name}
         onChange={(e) => setValues({ ...values, name: e.target.value })}
-        inputProps={{ type: 'text', placeholder: 'John Doe' }}
+        inputProps={{ type: 'text', placeholder: 'Enter your name!' }}
       />
       <br />
       <TextField
         label="Email"
         value={values.email}
         onChange={(e) => setValues({ ...values, email: e.target.value })}
-        inputProps={{ type: 'email', placeholder: 'jhondoe@mail.com' }}
+        inputProps={{ type: 'email', placeholder: 'Enter your mail-id' }}
       />
       <Button onClick={handleAddUser}>Submit</Button>
     </div>

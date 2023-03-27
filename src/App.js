@@ -1,19 +1,39 @@
-import { Route, Routes } from "react-router-dom";
-import AddUser from "./CRUD/users/AddUser";
-import EditUser from "./CRUD/users/EditUser";
-import UserList from "./CRUD/users/UserList";
-
+import { useState, useEffect } from "react";
+import Header from "./API CALL/Header";
+import "./App.css";
 function App() {
+  const [post, setPost] = useState(null);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((data) => data.json())
+      .then((data) => {
+        setPost(data);
+      });
+  }, []);
+
   return (
-    <div className="container mx-auto px-2 max-w-5xl pt-10 md:pt-32">
-      <h1 className="text-center font-bold text-2xl text-gray-700">CRUD with redux toolkit</h1>
-      <Routes>
-        <Route path="/" element={<UserList />} />
-        <Route path="/add-user" element={<AddUser />} />
-        <Route path="/edit-user/:id" element={<EditUser />} />
-      </Routes>
+    <div className="App">
+      <Header />
+      <div className="container">
+        {post ? (
+          post.map((post) => {
+            return (
+              <div className="card mt-3">
+                <div className="card-body">
+                  <h5 className="card-title">{post.title}</h5>
+                  <p className="card-text">{post.body}</p>
+                  <a href="#button" className="btn btn-primary">
+                    Go somewhere..
+                  </a>
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <h3>Loading....</h3>
+        )}
+      </div>
     </div>
   );
 }
-
 export default App;
